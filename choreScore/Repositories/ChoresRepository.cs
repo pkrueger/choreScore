@@ -18,12 +18,18 @@ public class ChoresRepository
     return _db.Query<Chore>(sql, new { creatorId }).ToList();
   }
 
+  /// <summary>
+  /// Get Chore by <paramref name="id"/>
+  /// </summary>
   public Chore Get(int id)
   {
     var sql = "SELECT * FROM chores WHERE id = @id;";
     return _db.QueryFirstOrDefault<Chore>(sql, new { id });
   }
 
+  /// <summary>
+  /// Create Chore
+  /// </summary>
   public Chore Create(Chore choreData)
   {
     var sql = @"
@@ -33,5 +39,15 @@ public class ChoresRepository
     ";
     choreData.Id = _db.ExecuteScalar<int>(sql, choreData);
     return choreData;
+  }
+
+  /// <summary>
+  /// Delete Chores by <paramref name="id"/>
+  /// </summary>
+  public string Delete(int id)
+  {
+    var sql = "DELETE FROM chores WHERE id = @id;";
+    _db.Execute(sql, new { id });
+    return "Chore was deleted";
   }
 }
