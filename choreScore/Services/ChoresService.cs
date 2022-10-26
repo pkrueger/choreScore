@@ -2,15 +2,14 @@ namespace choreScore.Services;
 
 public class ChoresService
 {
-  private readonly IDbConnection _db;
-  public ChoresService(IDbConnection db)
+  private readonly ChoresRepository _cr;
+  public ChoresService(ChoresRepository cr)
   {
-    _db = db;
+    _cr = cr;
   }
 
-  public List<Chore> GetChores()
+  public List<Chore> GetChoresByCreatorId(string creatorId)
   {
-    // return _db.Chores;
     return null;
   }
 }
