@@ -1,5 +1,3 @@
-choreScore/appsettings.Development.json
-
 # User-specific files
 *.rsuser
 *.suo
@@ -437,3 +435,4 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+choreScore/appsettings.Development.json
