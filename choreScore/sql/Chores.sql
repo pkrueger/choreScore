@@ -11,5 +11,7 @@ CREATE TABLE
         priority INT NOT NULL CHECK(
             priority > 0
             AND priority < 5
-        )
-    )
+        ),
+        creatorId VARCHAR(255) NOT NULL,
+        FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
+    ) DEFAULT CHARSET utf8;
