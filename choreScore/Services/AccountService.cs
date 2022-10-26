@@ -1,4 +1,4 @@
-namespace chore_score.Services;
+namespace choreScore.Services;
 
 public class AccountService
 {

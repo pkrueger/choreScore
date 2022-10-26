@@ -1,4 +1,4 @@
-namespace chore_score.Controllers;
+namespace choreScore.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

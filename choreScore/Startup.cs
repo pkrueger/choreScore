@@ -1,4 +1,3 @@
-using chore_score.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MySqlConnector;
 
-namespace chore_score;
+namespace choreScore;
 
 public class Startup
 {
@@ -27,10 +26,9 @@ public class Startup
     services.AddControllers();
     services.AddSwaggerGen(c =>
     {
-      c.SwaggerDoc("v1", new OpenApiInfo { Title = "chore_score", Version = "v1" });
+      c.SwaggerDoc("v1", new OpenApiInfo { Title = "choreScore", Version = "v1" });
     });
     services.AddSingleton<Auth0Provider>();
-    services.AddSingleton<FakeDb>();
     services.AddScoped<IDbConnection>(x => CreateDbConnection());
 
     services.AddScoped<AccountsRepository>();

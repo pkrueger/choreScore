@@ -1,4 +1,4 @@
-namespace chore_score.Repositories;
+namespace choreScore.Repositories;
 
 public class AccountsRepository
 {

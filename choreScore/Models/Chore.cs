@@ -1,6 +1,6 @@
-using chore_score.Enums;
+using choreScore.Enums;
 
-namespace chore_score.Models;
+namespace choreScore.Models;
 
 public class Chore
 {
@@ -18,5 +18,4 @@ public class Chore
     Day = day;
     Priority = priority;
   }
-
 }

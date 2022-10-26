@@ -1,4 +1,4 @@
-namespace chore_score.Models;
+namespace choreScore.Models;
 
 public class Account
 {

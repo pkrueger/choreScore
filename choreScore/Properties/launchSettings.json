@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "chore_score": {
+    "choreScore": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

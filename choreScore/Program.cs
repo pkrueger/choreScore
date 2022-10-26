@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace chore_score;
+namespace choreScore;
 
 public class Program
 {

@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace chore_score.Enums;
+namespace choreScore.Enums;
 
 [JsonConverter(typeof(JsonStringEnumConverter))]
 public enum DayOfTheWeek
