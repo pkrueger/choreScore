@@ -44,10 +44,22 @@ public class ChoresRepository
   /// <summary>
   /// Delete Chores by <paramref name="id"/>
   /// </summary>
-  public string Delete(int id)
+  public void Delete(int id)
   {
     var sql = "DELETE FROM chores WHERE id = @id;";
     _db.Execute(sql, new { id });
-    return "Chore was deleted";
+  }
+
+  /// <summary>
+  /// Edit Chores by <paramref name="choreData"/>
+  /// </summary>
+  public void Edit(Chore choreData)
+  {
+    var sql = @"
+    UPDATE chores SET 
+      name = @Name, isComplete = @IsComplete, day = @Day, priority = @priority
+    WHERE id = @Id;
+    ";
+    _db.Execute(sql, choreData);
   }
 }
