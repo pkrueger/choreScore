@@ -83,7 +83,7 @@ public class ChoresController : ControllerBase
       choreData.creatorId = userInfo.Id;
       choreData.Id = id;
       Chore chore = _cs.EditChore(choreData);
-      return chore;
+      return Ok(chore);
     }
     catch (System.Exception e)
     {
