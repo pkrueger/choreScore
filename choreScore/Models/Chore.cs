@@ -9,6 +9,7 @@ public class Chore
   public bool IsComplete { get; set; }
   public DayOfTheWeek Day { get; set; }
   public int Priority { get; set; }
+  public string creatorId { get; set; }
 
   // public Chore(string name, DayOfTheWeek day, int priority)
   // {
