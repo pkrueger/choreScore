@@ -44,10 +44,11 @@ public class ChoresRepository
   /// <summary>
   /// Delete Chores by <paramref name="id"/>
   /// </summary>
-  public void Delete(int id)
+  public string Delete(int id)
   {
     var sql = "DELETE FROM chores WHERE id = @id;";
     _db.Execute(sql, new { id });
+    return "Chore has been deleted.";
   }
 
   /// <summary>

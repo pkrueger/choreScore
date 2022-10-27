@@ -58,4 +58,36 @@ public class ChoresController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+
+  [HttpDelete("{id}")]
+  public async Task<string> DeleteChore(int id)
+  {
+    try
+    {
+      var userInfo = await _a0p.GetUserInfoAsync<Account>(HttpContext);
+      string message = _cs.DeleteChore(id, userInfo.Id);
+      return message;
+    }
+    catch (System.Exception e)
+    {
+      return BadRequest(e.Message).ToString();
+    }
+  }
+
+  [HttpPut("{id}")]
+  public async Task<ActionResult<Chore>> EditChore(int id, [FromBody] Chore choreData)
+  {
+    try
+    {
+      var userInfo = await _a0p.GetUserInfoAsync<Account>(HttpContext);
+      choreData.creatorId = userInfo.Id;
+      choreData.Id = id;
+      Chore chore = _cs.EditChore(choreData);
+      return chore;
+    }
+    catch (System.Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
 }
