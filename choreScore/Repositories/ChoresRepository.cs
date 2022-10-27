@@ -35,8 +35,8 @@ public class ChoresRepository
     var sql = @"
       INSERT INTO chores (name, day, priority) 
       VALUES (@Name, @Day, @Priority);
-      SELECT LAST_INSERT_ID();
-    ";
+      SELECT LAST_INSERT_ID()
+    ;";
     choreData.Id = _db.ExecuteScalar<int>(sql, choreData);
     return choreData;
   }
@@ -57,10 +57,15 @@ public class ChoresRepository
   public void Edit(Chore choreData)
   {
     var sql = @"
-    UPDATE chores SET 
-      name = @Name, isComplete = @IsComplete, day = @Day, priority = @priority
-    WHERE id = @Id;
-    ";
-    _db.Execute(sql, choreData);
+      UPDATE chores SET 
+        name = @Name, isComplete = @IsComplete, day = @Day, priority = @priority
+      WHERE id = @Id
+    ;";
+    var rowsAffected = _db.Execute(sql, choreData);
+
+    if (rowsAffected == 0)
+    {
+      throw new Exception("Unable to update.");
+    }
   }
 }

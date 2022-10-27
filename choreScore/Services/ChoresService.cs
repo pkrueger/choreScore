@@ -42,12 +42,13 @@ public class ChoresService
   {
     Chore originalChore = GetChoreById(choreData.Id, choreData.creatorId);
 
+    _cr.Edit(choreData);
+
     originalChore.Day = choreData.Day ?? originalChore.Day;
     originalChore.IsComplete = choreData.IsComplete ?? originalChore.IsComplete;
     originalChore.Name = choreData.Name ?? originalChore.Name;
     originalChore.Priority = choreData.Priority ?? originalChore.Priority;
 
-    _cr.Edit(choreData);
     return originalChore;
   }
 }
