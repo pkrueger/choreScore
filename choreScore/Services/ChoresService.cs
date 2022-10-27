@@ -34,20 +34,20 @@ public class ChoresService
 
   public string DeleteChore(int id, string accountId)
   {
-    GetChoreById(id, accountId);
-    return _cr.Delete(id);
+    Chore chore = GetChoreById(id, accountId);
+    return _cr.Delete(chore);
   }
 
   internal Chore EditChore(Chore choreData)
   {
     Chore originalChore = GetChoreById(choreData.Id, choreData.creatorId);
 
-    _cr.Edit(choreData);
-
     originalChore.Day = choreData.Day ?? originalChore.Day;
     originalChore.IsComplete = choreData.IsComplete ?? originalChore.IsComplete;
     originalChore.Name = choreData.Name ?? originalChore.Name;
     originalChore.Priority = choreData.Priority ?? originalChore.Priority;
+
+    _cr.Edit(originalChore);
 
     return originalChore;
   }

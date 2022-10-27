@@ -6,7 +6,7 @@ CREATE TABLE
         createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
         updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         name VARCHAR(255) NOT NULL,
-        isComplete BOOLEAN NOT NULL,
+        isComplete BOOLEAN DEFAULT 0,
         day VARCHAR(255) NOT NULL,
         priority INT NOT NULL CHECK(
             priority > 0

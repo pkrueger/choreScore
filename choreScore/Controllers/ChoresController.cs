@@ -60,13 +60,13 @@ public class ChoresController : ControllerBase
   }
 
   [HttpDelete("{id}")]
-  public async Task<string> DeleteChore(int id)
+  public async Task<ActionResult<string>> DeleteChore(int id)
   {
     try
     {
       var userInfo = await _a0p.GetUserInfoAsync<Account>(HttpContext);
       string message = _cs.DeleteChore(id, userInfo.Id);
-      return message;
+      return Ok(message);
     }
     catch (System.Exception e)
     {

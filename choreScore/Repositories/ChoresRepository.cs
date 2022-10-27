@@ -33,21 +33,22 @@ public class ChoresRepository
   public Chore Create(Chore choreData)
   {
     var sql = @"
-      INSERT INTO chores (name, day, priority) 
-      VALUES (@Name, @Day, @Priority);
+      INSERT INTO chores (name, day, priority, creatorId) 
+      VALUES (@Name, @Day, @Priority, @CreatorId);
       SELECT LAST_INSERT_ID()
     ;";
-    choreData.Id = _db.ExecuteScalar<int>(sql, choreData);
-    return choreData;
+    int choreId = _db.ExecuteScalar<int>(sql, choreData);
+    Chore chore = Get(choreId);
+    return chore;
   }
 
   /// <summary>
   /// Delete Chores by <paramref name="id"/>
   /// </summary>
-  public string Delete(int id)
+  public string Delete(Chore chore)
   {
     var sql = "DELETE FROM chores WHERE id = @id;";
-    _db.Execute(sql, new { id });
+    _db.Execute(sql, chore);
     return "Chore has been deleted.";
   }
 
